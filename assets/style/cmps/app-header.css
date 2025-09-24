@@ -2,6 +2,22 @@
   background-color: var(--clr1);
   color: var(--clr1bg);
   padding: 1em;
+  /* gap: 20px; */
+}
+
+.app-header nav {
+  display: flex;
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  color: var(--gray3);
+  font-size: 1.2em;
+  gap: 20px;
+
+}
+
+.app-header nav span:hover {
+  text-decoration: underline;
+  color: var(--gray2);
+  cursor: pointer;
 }
 
 @media(max-width: 720px) {
