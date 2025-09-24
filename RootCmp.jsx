@@ -18,10 +18,10 @@ export function App() {
                     <span onClick={() => setPage('bookindex')} >Book Index</span>
                 </nav>
             </header>
-            <main class="container">
+            <main className="container">
                 {page === 'home' && <Home />}
-                {page === 'about'}
-                {page === 'bookindex'}
+                {page === 'about' && <div>About Us Page</div>}
+                {page === 'bookindex' && <div>Books will be here</div>}
             </main>
         </section>
     )
