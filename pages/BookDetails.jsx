@@ -18,16 +18,15 @@ export function BookDetails({ bookId, onBack }) {
             .catch(err => console.log('err', err))
     }
 
-
     // const book = null
 
-
     if (!book) return <div>Loading Details...</div>
-    const { title, price } = book
+    const { title, price, thumbnail } = book
 
     return (
         <section className="book-details container" >
-            <img src={`../assets/img/${title}.jpg`} alt="book Image" />
+            {/* <img src={`../assets/img/${title}.jpg`} alt="book Image" /> */}
+            <img src={thumbnail} alt="book Image" />
             <h1>Book Name: {title}</h1>
             <h1>Book Price: {price}</h1>
             <p>
