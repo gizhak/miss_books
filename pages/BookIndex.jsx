@@ -13,6 +13,8 @@ export function BookIndex() {
     // }, [])
 
     useEffect(() => {
+        // console.log('mounting')
+
         bookService.query()
             .then(setBooks)
             .catch(err => console.log('err', err))
@@ -24,13 +26,26 @@ export function BookIndex() {
     //         .catch(err => console.log('err', err))
     // }
 
+
+    function onRemoveBook(bookId) {
+        console.log('Removing... - ', bookId)
+        bookService.remove(bookId)
+            .then(() => {
+                setBooks(books => books.filter(book => book.id !== bookId))
+            })
+            .catch(err => console.log('err', err))
+
+    }
+
+
+    // console.log('render')
     if (!books) return <div>Loading...</div>
 
     return (
         <section className="book-index" >
             <h1>Books Index</h1>
             {/* <pre>{JSON.stringify(books, null, 2)}</pre> */}
-            <BookList books={books} />
+            <BookList books={books} onRemoveBook={onRemoveBook} />
 
         </section>
     )
