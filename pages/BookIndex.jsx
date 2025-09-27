@@ -51,7 +51,10 @@ export function BookIndex() {
     return (
         <section className="book-index" >
             {selectedBookId
-                ? <BookDetails bookId={selectedBookId} />
+                ? <BookDetails
+                    onBack={() => setSelectedBookId(null)}
+                    bookId={selectedBookId}
+                />
                 : <BookList books={books}
                     onRemoveBook={onRemoveBook}
                     onSelectBookId={onSelectBookId}

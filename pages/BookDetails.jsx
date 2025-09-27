@@ -18,6 +18,7 @@ export function BookDetails({ bookId, onBack }) {
             .catch(err => console.log('err', err))
     }
 
+
     // const book = null
 
 
@@ -34,7 +35,7 @@ export function BookDetails({ bookId, onBack }) {
                 Dicta neque ratione consectetur dolor nesciunt rem cumque harum? Perferendis,
                 iusto quidem! Optio illum unde praesentium consectetur atque sit maiores.
             </p>
-            <button onClick={onBack}>Back</button>
+            <button onClick={() => onBack(book)}>Back</button>
 
         </section>
 
