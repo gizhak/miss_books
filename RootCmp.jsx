@@ -1,11 +1,12 @@
 
 import { Home } from './cmps/Home.jsx'
+import { BookIndex } from './pages/BookIndex.jsx'
 
 const { useState } = React
 
 export function App() {
 
-    const [page, setPage] = useState('home')
+    const [page, setPage] = useState('bookindex')
 
 
     return (
@@ -21,7 +22,7 @@ export function App() {
             <main className="container">
                 {page === 'home' && <Home />}
                 {page === 'about' && <div>About Us Page</div>}
-                {page === 'bookindex' && <div>Books will be here</div>}
+                {page === 'bookindex' && <BookIndex />}
             </main>
         </section>
     )

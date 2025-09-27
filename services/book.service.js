@@ -60,8 +60,8 @@ function _createBooks() {
     }
 }
 
-function _createBook(title, price) {
-    const book = getEmptyBook(title, price)
+function _createBook(title, listPrice) {
+    const book = getEmptyBook(title, listPrice)
     book.id = utilService.makeId()
     return book
 }
