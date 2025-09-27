@@ -53,9 +53,9 @@ function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
     if (!books || !books.length) {
         books = []
-        books.push(_createBook('test1', 109))
-        books.push(_createBook('test2', 200))
-        books.push(_createBook('test3', 80))
+        books.push(_createBook('1', 109))
+        books.push(_createBook('2', 200))
+        books.push(_createBook('3', 80))
         utilService.saveToStorage(BOOK_KEY, books)
     }
 }
