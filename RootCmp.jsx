@@ -12,11 +12,11 @@ export function App() {
     return (
         <section className="app">
             <header className="app-header">
-                <h1>My App</h1>
+                <h1>MISS BOOKS</h1>
                 <nav>
-                    <span onClick={() => setPage('home')} >Home Page</span>
-                    <span onClick={() => setPage('about')} >About Us</span>
-                    <span onClick={() => setPage('bookindex')} >Book Index</span>
+                    <span onClick={() => setPage('home')} >Home</span>
+                    <span onClick={() => setPage('about')} >About</span>
+                    <span onClick={() => setPage('bookindex')} >Books</span>
                 </nav>
             </header>
             <main className="container">
