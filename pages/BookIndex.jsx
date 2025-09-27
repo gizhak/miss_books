@@ -1,10 +1,12 @@
 import { bookService } from "../services/book.service.js"
+import { BookList } from "../cmps/BookList.jsx"
 
 const { useState, useEffect } = React
 
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
+
 
     // useEffect(() => {
     //     loadBooks()
@@ -27,6 +29,8 @@ export function BookIndex() {
     return (
         <section className="book-index" >
             <h1>Books Index</h1>
+            {/* <pre>{JSON.stringify(books, null, 2)}</pre> */}
+            <BookList books={books} />
 
         </section>
     )
