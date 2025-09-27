@@ -1,0 +1,15 @@
+.book-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-details img {
+    width: 50%;
+    align-self: center;
+    border-radius: 8px;
+}
+
+.book-details button {
+    width: 20%;
+    align-self: center;
+}
