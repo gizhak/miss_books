@@ -23,8 +23,24 @@
   cursor: pointer;
 }
 
+
+
 @media(max-width: 720px) {
   .app-header {
     color: var(--clr2bg);
   }
+
+}
+
+
+@media (max-width: 453px) {
+  .app-header nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-right: 25px;
+    margin-top: 15px;
+
+  }
+
 }

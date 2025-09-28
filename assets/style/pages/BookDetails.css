@@ -13,3 +13,13 @@
     width: 20%;
     align-self: center;
 }
+
+
+@media(min-width: 1490px) {
+    .book-details img {
+        width: 25%;
+        align-self: center;
+        border-radius: 8px;
+    }
+
+}

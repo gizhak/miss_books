@@ -21,14 +21,14 @@ export function BookDetails({ bookId, onBack }) {
     // const book = null
 
     if (!book) return <div>Loading Details...</div>
-    const { title, price, thumbnail } = book
+    const { title, pageCount, thumbnail } = book
 
     return (
         <section className="book-details container" >
             {/* <img src={`../assets/img/${title}.jpg`} alt="book Image" /> */}
             <img src={thumbnail} alt="book Image" />
             <h1>Book Name: {title}</h1>
-            <h1>Book Price: {price}</h1>
+            <h1>Book Price: {pageCount}</h1>
             <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, mollitia?
                 Dicta neque ratione consectetur dolor nesciunt rem cumque harum? Perferendis,
