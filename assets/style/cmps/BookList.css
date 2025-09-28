@@ -15,10 +15,16 @@
     background-color: var(--clr1bg-light);
     border-radius: 8px;
     padding: 5px;
+    gap: 20px
 }
 
 .book-list img {
     border-radius: 8px
+}
+
+.book-preview h3 {
+    text-align: center;
+
 }
 
 .book-list li.loading {
