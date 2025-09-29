@@ -1,24 +1,43 @@
 
 const { useState, useEffect } = React
 
-export function BookFilter({ }) {
+export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
-    // const [filterByToEdite, setFilterByToEdite] = useState(defaultFilter)
+    const [filterByToEdite, setFilterByToEdite] = useState(defaultFilter)
+
+    // console.log('book filter: ', filterByToEdite)
+
+    // handeling filter chnages
+    function handleTxtChange(ev) {
+        // console.log('ev-target', ev.target.value)
+        const value = ev.target.value
+        setFilterByToEdite(filterBy => ({ ...filterBy, txt: value }))
+    }
+
+    function handlePriceChange(ev) {
+        const value = ev.target.value
+        setFilterByToEdite(filterBy => ({ ...filterBy, price: value }))
+    }
+    //----------------------------//
+
+    function onSubmitFilter(ev) {
+        ev.preventDefault() // don't know where its come
+
+        // console.log('submit: ', filterByToEdite)
+        onSetFilterBy(filterByToEdite)
+    }
 
 
-
-    // console.log(filterByToEdite)
-
-
+    const { txt, price } = filterByToEdite
     return (
         <section className="book-filter container" >
-            <form>
+            <form onSubmit={onSubmitFilter} >
                 <label htmlFor="text">Name</label>
-                <input name="txt" id="txt" type="text" />
+                <input onChange={handleTxtChange} value={txt} id="txt" type="text" />
 
 
                 <label htmlFor="Price">Price</label>
-                <input name="Price" id="Price" type="number" />
+                <input onChange={handlePriceChange} value={price} id="price" type="number" />
                 <button >Submit</button>
             </form>
         </section>

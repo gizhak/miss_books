@@ -3,7 +3,7 @@ import { storageService } from './async-storage.service.js'
 
 
 const BOOK_KEY = 'bookDB'
-var gFilterBy = { txt: '', minPrice: 0 }
+var gFilterBy = { txt: '', price: 0 }
 _createBooks()
 
 export const bookService = {
@@ -22,6 +22,8 @@ function query() {
             if (gFilterBy.txt) {
                 const regex = new RegExp(gFilterBy.txt, 'i')
                 books = books.filter(book => regex.test(book.title))
+            } if (gFilterBy.amount) {
+                books = books.filter(book => book.amount >= gFilterBy.price)
             }
             return books
         })

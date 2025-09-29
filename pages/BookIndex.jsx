@@ -9,7 +9,8 @@ export function BookIndex() {
 
     const [books, setBooks] = useState(null)
     const [selectedBookId, setSelectedBookId] = useState(null)
-    const [filterBy, getFilterBy] = useState(bookService.getDefaltFilter())
+    const [filterBy, setFilterBy] = useState(bookService.getDefaltFilter())
+    console.log('filterBy: ', filterBy)
 
 
     // useEffect(() => {
@@ -22,7 +23,7 @@ export function BookIndex() {
     }, [])
 
     function loadBooks() {
-        bookService.query()
+        bookService.query(filterBy)
             .then(setBooks)
             .catch(err => console.log('err', err))
     }
@@ -39,13 +40,20 @@ export function BookIndex() {
     }
 
     function onSelectBookId(bookId) {
-        console.log('SelectedBook - ', bookId)
+        // console.log('SelectedBook - ', bookId)
         setSelectedBookId(bookId)
+    }
+
+    function onSetFilterBy(newFilterBy) {
+        // console.log('new Filter: ', newFilterBy)
+        // console.log('filter', filterBy)
+        setFilterBy(prevFilter => ({ ...prevFilter, ...newFilterBy }))
     }
 
 
     // console.log('render')
     if (!books) return <div>Loading...</div>
+    const { txt, price, labels } = filterBy
 
     return (
         <section className="book-index" >
@@ -56,8 +64,8 @@ export function BookIndex() {
                     bookId={selectedBookId}
                 />
                 : <Fragment>
-                    <BookFilter />
-
+                    <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={{ txt, price }} />
+                    {/* <BookFilterSelect onSetFilterBy={onSetFilterBy} defaultFilter={{ labels }} /> */}
                     <BookList books={books}
                         onRemoveBook={onRemoveBook}
                         onSelectBookId={onSelectBookId}
@@ -72,5 +80,9 @@ export function BookIndex() {
 
         </section>
     )
+
+}
+
+function BookFilterSelect() {
 
 }
