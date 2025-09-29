@@ -1,13 +1,15 @@
 import { bookService } from "../services/book.service.js"
 import { BookList } from "../cmps/BookList.jsx"
 import { BookDetails } from "../pages/BookDetails.jsx"
+import { BookFilter } from "../cmps/BookFilter.jsx"
 
-const { useState, useEffect } = React
+const { useState, useEffect, Fragment } = React
 
 export function BookIndex() {
 
     const [books, setBooks] = useState(null)
     const [selectedBookId, setSelectedBookId] = useState(null)
+    const [filterBy, getFilterBy] = useState(bookService.getDefaltFilter())
 
 
     // useEffect(() => {
@@ -16,17 +18,14 @@ export function BookIndex() {
 
     useEffect(() => {
         // console.log('mounting')
+        loadBooks()
+    }, [])
 
+    function loadBooks() {
         bookService.query()
             .then(setBooks)
             .catch(err => console.log('err', err))
-    }, [])
-
-    // function loadBooks() {
-    //     bookService.query()
-    //         .then(setBooks)
-    //         .catch(err => console.log('err', err))
-    // }
+    }
 
 
     function onRemoveBook(bookId) {
@@ -50,15 +49,21 @@ export function BookIndex() {
 
     return (
         <section className="book-index" >
+
             {selectedBookId
                 ? <BookDetails
                     onBack={() => setSelectedBookId(null)}
                     bookId={selectedBookId}
                 />
-                : <BookList books={books}
-                    onRemoveBook={onRemoveBook}
-                    onSelectBookId={onSelectBookId}
-                />
+                : <Fragment>
+                    <BookFilter />
+
+                    <BookList books={books}
+                        onRemoveBook={onRemoveBook}
+                        onSelectBookId={onSelectBookId}
+                    />
+                </Fragment>
+
             }
             {/* <h1>Books Index</h1> */}
             {/* <pre>{JSON.stringify(books, null, 2)}</pre> */}

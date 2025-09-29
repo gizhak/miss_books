@@ -12,6 +12,7 @@ export const bookService = {
     remove,
     save,
     getEmptyBook,
+    getDefaltFilter,
 }
 
 
@@ -44,6 +45,20 @@ function save(book) {
 
 function getEmptyBook(title = '', price = 0) {
     return { id: '', title, price }
+}
+
+function getDefaltFilter() {
+    return { txt: '', price: '' }
+}
+
+function getFilterBy() {
+    return { ...gFilterBy }
+}
+
+function setFilterBy(filterBy = {}) {
+    if (filterBy.txt !== undefined) gFilterBy.txt = filterBy.txt
+    if (filterBy.price !== undefined) gFilterBy.price = filterBy.price
+    return gFilterBy
 }
 
 

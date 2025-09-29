@@ -13,7 +13,8 @@ export const carService = {
     getEmptyCar,
     getNextCarId,
     getFilterBy,
-    setFilterBy
+    setFilterBy,
+    getDefaltFilter,
 }
 
 function query() {
@@ -53,6 +54,11 @@ function getEmptyCar(vendor = '', maxSpeed = 0) {
 function getFilterBy() {
     return { ...gFilterBy }
 }
+
+function getDefaltFilter() {
+    return { txt: '', price: '' }
+}
+
 
 function setFilterBy(filterBy = {}) {
     if (filterBy.txt !== undefined) gFilterBy.txt = filterBy.txt
