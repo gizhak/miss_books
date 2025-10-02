@@ -16,7 +16,7 @@ export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
     function handlePriceChange(ev) {
         const value = ev.target.value
-        setFilterByToEdite(filterBy => ({ ...filterBy, price: value }))
+        setFilterByToEdite(filterBy => ({ ...filterBy, price: +value || 0 }))
     }
     //----------------------------//
 

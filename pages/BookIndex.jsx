@@ -10,7 +10,7 @@ export function BookIndex() {
     const [books, setBooks] = useState(null)
     const [selectedBookId, setSelectedBookId] = useState(null)
     const [filterBy, setFilterBy] = useState(bookService.getDefaltFilter())
-    console.log('filterBy: ', filterBy)
+    // console.log('filterBy: ', filterBy)
 
 
     // useEffect(() => {
@@ -20,7 +20,7 @@ export function BookIndex() {
     useEffect(() => {
         // console.log('mounting')
         loadBooks()
-    }, [])
+    }, [filterBy])
 
     function loadBooks() {
         bookService.query(filterBy)
