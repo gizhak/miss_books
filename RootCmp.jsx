@@ -1,5 +1,6 @@
 
-import { Home } from './cmps/Home.jsx'
+import { Home } from './pages/Home.jsx'
+import { AboutUs } from './pages/AboutUs.jsx'
 import { BookIndex } from './pages/BookIndex.jsx'
 import { BookFilter } from "../cmps/BookFilter.jsx"
 
@@ -22,7 +23,7 @@ export function App() {
             </header>
             <main className="container">
                 {page === 'home' && <Home />}
-                {page === 'about' && <div>About Us Page</div>}
+                {page === 'about' && <AboutUs />}
                 {page === 'bookindex' && <BookIndex />}
             </main>
         </section>

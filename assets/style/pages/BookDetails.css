@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.book-details h3 {
+    text-align: center;
+}
+
 .book-details img {
     width: 30%;
     align-self: center;
