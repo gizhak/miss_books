@@ -18,6 +18,14 @@
     align-self: center;
 }
 
+.price-green {
+    color: green;
+}
+
+.price-red {
+    color: red;
+}
+
 
 @media(min-width: 1490px) {
     .book-details img {

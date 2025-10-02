@@ -1,13 +1,12 @@
 
 import { bookService } from "../services/book.service.js"
-import { utilService } from "../services/util.service.js"
 
 
 const { useState, useEffect } = React
 
 export function BookDetails({ bookId, onBack }) {
 
-    console.log('book id from details', bookId)
+    // console.log('book id from details', bookId)
 
     const [book, setBook] = useState(null)
     useEffect(() => {
@@ -30,21 +29,29 @@ export function BookDetails({ bookId, onBack }) {
     }
 
 
-    function bookPublishedDate(publishedDate) {
-        console.log('book date: ', publishedDate)
-        // const currentDate = utilService.getDayName(date)
-        // console.log(currentDate)
+    function getBookAge(publishedDate) {
         const currentDate = new Date()
-        console.log(currentDate)
+        // console.log(currentDate)
         const currentYear = currentDate.getFullYear()
-        console.log(currentYear)
+        // console.log(currentYear)
 
         const check = currentYear - publishedDate
-        console.log(check)
+        // console.log(check)
 
         if (check > 10) return 'Vintage'
         if (check < 1) return 'New'
+        return 'Old'
     }
+
+
+    function getPriceClass(amount) {
+        console.log(amount)
+
+        if (amount > 150) return 'price-red'
+        if (amount < 20) return 'price-green'
+        return ''
+    }
+
 
     if (!book) return <div>Loading Details...</div>
     const { title, thumbnail, description, pageCount, publishedDate } = book
@@ -56,8 +63,10 @@ export function BookDetails({ bookId, onBack }) {
             <h4>{getReadingLevel(pageCount)}</h4>
             <img src={thumbnail} alt="book Image" />
 
-            <h3>Book Price: {book.listPrice.amount}</h3>
-            <h4>{bookPublishedDate(publishedDate)}</h4>
+            <h3 className={getPriceClass(book.listPrice.amount)}>
+                Book Price: {book.listPrice.amount}
+            </h3>
+            <h4>{getBookAge(publishedDate)}</h4>
             <p>{description}</p>
             <button onClick={() => onBack(book)}>Back</button>
 
