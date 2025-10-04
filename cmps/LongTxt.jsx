@@ -13,7 +13,7 @@ export function LongTxt({ txt, length = 100 }) {
         <p>
             {textToShow}
             {isLongText && (
-                <button onClick={() => setIsExpanded(!isExpanded)} >{isExpanded ? 'Less' : 'More'}</button>
+                <button className="long-txt" onClick={() => setIsExpanded(!isExpanded)} >{isExpanded ? 'Less' : 'More'}</button>
             )}
         </p>
     )

@@ -7,6 +7,15 @@ export function BookFilter({ defaultFilter, onSetFilterBy }) {
 
     // console.log('book filter: ', filterByToEdite)
 
+
+    useEffect(() => {
+        const debTime = setTimeout(() => {
+            onSetFilterBy(filterByToEdite)
+        }, 800)
+        return () => clearTimeout(debTime)
+    }, [filterByToEdite])
+
+
     // handeling filter chnages
     function handleTxtChange(ev) {
         // console.log('ev-target', ev.target.value)
@@ -60,7 +69,7 @@ export function BookFilter({ defaultFilter, onSetFilterBy }) {
                     <option value="Religion">Religion</option>
                 </select>
 
-                <button >Submit</button>
+                {/* <button >Submit</button> */}
                 <button type="button" onClick={onClearFilter} >Clear Filter</button>
 
             </form>
