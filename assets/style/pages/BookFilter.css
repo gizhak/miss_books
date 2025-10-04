@@ -1,0 +1,12 @@
+.book-filter {
+    /* display: flex; */
+    /* flex-direction: column; */
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.book-filter form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

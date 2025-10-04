@@ -56,7 +56,7 @@ export function BookDetails({ bookId, onBack }) {
 
 
     if (!book) return <div>Loading Details...</div>
-    const { title, thumbnail, description, pageCount, publishedDate } = book
+    const { title, thumbnail, description, pageCount, publishedDate, language } = book
 
     return (
         <section className="book-details container" >
@@ -69,6 +69,7 @@ export function BookDetails({ bookId, onBack }) {
                 Book Price: {book.listPrice.amount}
             </h3>
             <h4>{getBookAge(publishedDate)}</h4>
+            <h4 className="lang" >Language: {language}</h4>
             <LongTxt txt={description} />
             <button onClick={() => onBack(book)}>Back</button>
 

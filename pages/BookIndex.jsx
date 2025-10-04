@@ -53,7 +53,7 @@ export function BookIndex() {
 
     // console.log('render')
     if (!books) return <div>Loading...</div>
-    const { txt, price, labels } = filterBy
+    const { txt, price, catg } = filterBy
 
     return (
         <section className="book-index" >
@@ -64,7 +64,7 @@ export function BookIndex() {
                     bookId={selectedBookId}
                 />
                 : <Fragment>
-                    <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={{ txt, price }} />
+                    <BookFilter onSetFilterBy={onSetFilterBy} defaultFilter={{ txt, price, catg }} />
                     {/* <BookFilterSelect onSetFilterBy={onSetFilterBy} defaultFilter={{ labels }} /> */}
                     <BookList books={books}
                         onRemoveBook={onRemoveBook}

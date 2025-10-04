@@ -18,17 +18,19 @@ export const bookService = {
 }
 
 
-function query(filterBy) {
+function query(filterBy = {}) {
     console.log('gFilterBy inside query:', filterBy)
     return storageService.query(BOOK_KEY)
         .then(books => {
             // console.log('gFilterBy:', gFilterBy)
-            // console.log('First book structure:', books[0])
+            // console.log('First book structure:', books[0].categories[0])
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
                 books = books.filter(book => regex.test(book.title))
             } if (filterBy.price) {
                 books = books.filter(book => book.listPrice.amount <= filterBy.price)
+            } if (filterBy.catg) {
+                books = books.filter(book => book.categories.includes(filterBy.catg))
             }
             return books
         })
@@ -55,7 +57,7 @@ function getEmptyBook(title = '', price = 0) {
 }
 
 function getDefaltFilter() {
-    return { txt: '', price: '' }
+    return { txt: '', price: '', catg: '' }
 }
 
 // function getFilterBy() {
