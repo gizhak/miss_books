@@ -1,5 +1,7 @@
 
 import { bookService } from "../services/book.service.js"
+import { LongTxt } from "../cmps/LongTxt.jsx"
+
 
 
 const { useState, useEffect } = React
@@ -38,9 +40,9 @@ export function BookDetails({ bookId, onBack }) {
         const check = currentYear - publishedDate
         // console.log(check)
 
-        if (check > 10) return 'Vintage'
-        if (check < 1) return 'New'
-        return 'Old'
+        if (check > 10) return 'Vintage Book'
+        if (check < 1) return 'New Book'
+        return 'Old Book'
     }
 
 
@@ -67,7 +69,7 @@ export function BookDetails({ bookId, onBack }) {
                 Book Price: {book.listPrice.amount}
             </h3>
             <h4>{getBookAge(publishedDate)}</h4>
-            <p>{description}</p>
+            <LongTxt txt={description} />
             <button onClick={() => onBack(book)}>Back</button>
 
         </section>
